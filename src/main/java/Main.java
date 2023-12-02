@@ -7,7 +7,6 @@ public class Main {
     static String listProducts = ""; // список товаров
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int amountPeople = 0;
         while (amountPeople <= 1) {
             try {
                 System.out.println("Введите количество человек:");
@@ -29,50 +28,5 @@ public class Main {
         System.out.println("Количество добавленных товаров: "+ amountProducts);
         System.out.println("Добавленные товары:" + listProducts);
         SplitCheck.formatter();
-    }
-
-    public static class Calculator {
-        public static void calculator() {
-            System.out.println("Введите название товара");
-            String nameProduct = scanner.next();
-            amountProducts = amountProducts +1;
-            listProducts = listProducts + "\n" + nameProduct;
-            System.out.println("Введите стоимость товара в формате в рубли и копейки. Образец 11.11");
-            double price = scanner.nextDouble();
-            totalPrice = totalPrice + price;
-            System.out.println("Товар добавлен.\nДля продолжения введите любой символ и нажмите Enter. " +
-                    "\nЕсли хотите завершить процесс добавления товара введите 'Завершить'");
-            String input = scanner.next();
-            if (!input.equalsIgnoreCase("завершить")){
-                calculator();
-            }
-        }
-    }
-    public static class SplitCheck {
-        public static void formatter(){
-            double split = totalPrice / amountPeople;
-            String format = "Каждый человек должен заплатить поровну, а именно: %.2f %s";
-            int roundedSplit = (int)Math.floor(split);
-            int preLastDigit = roundedSplit % 100 / 10;
-            int lastDigit = roundedSplit %10;
-            if (preLastDigit == 1){
-                String rubles = "рублей";
-                System.out.println(String.format(format, split, rubles));
-            }
-            switch (lastDigit) {
-                case 1:{
-                    String rubles = "рубль";
-                    System.out.println(String.format(format, split, rubles));}
-                break;
-                case 2:
-                case 3:
-                case 4: {
-                    String rubles = "рубля";
-                    System.out.println(String.format(format, split, rubles));}
-                break;
-                default:
-                    String rubles = "рублей";
-                    System.out.println(String.format(format, split, rubles));}
-        }
     }
 }
