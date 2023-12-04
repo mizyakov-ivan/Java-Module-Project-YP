@@ -8,21 +8,21 @@ public class SplitCheck {
         if (preLastDigit == 1){
             String rubles = "рублей";
             System.out.println(String.format(format, split, rubles));
-        }
-        switch (lastDigit) {
-            case 1:{
-                String rubles = "рубль";
-                System.out.println(String.format(format, split, rubles));}
-            break;
-            case 2:
-            case 3:
-            case 4: {
-                String rubles = "рубля";
-                System.out.println(String.format(format, split, rubles));}
-            break;
-            default:
-                String rubles = "рублей";
-                System.out.println(String.format(format, split, rubles));
+        } else {
+            String rubles;
+            switch (lastDigit) {
+                case 1:
+                    rubles = "рубль";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    rubles = "рубля";
+                    break;
+                default:
+                    rubles = "рублей";
+                    break;
+            }System.out.println(String.format(format, split, rubles));
         }
     }
 }

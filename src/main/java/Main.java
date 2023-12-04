@@ -1,12 +1,13 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 public class Main {
-    static int amountPeople; // количество людей
+    static int amountPeople=0; // количество людей
     static double totalPrice = 0; // итоговая стоимость товаров
     static int amountProducts= 0; // количество товаров
     static String listProducts = ""; // список товаров
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+
         while (amountPeople <= 1) {
             try {
                 System.out.println("Введите количество человек:");
@@ -23,10 +24,9 @@ public class Main {
             }
         }
         Calculator.calculator();
-        System.out.println("Сумма которую необхоидмо поделить равна: "+ totalPrice);
-        System.out.println("Количество человек: " + amountPeople);
-        System.out.println("Количество добавленных товаров: "+ amountProducts);
-        System.out.println("Добавленные товары:" + listProducts);
+        System.out.printf("Сумма которую необходимо поделить равна: %.2f\n", totalPrice);
+        System.out.println("Количество человек: " + amountPeople + "\n" + "Количество добавленных товаров: "+
+                amountProducts + "\n" + "Добавленные товары:" + listProducts);
         SplitCheck.formatter();
     }
 }
